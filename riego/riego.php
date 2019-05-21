@@ -1,5 +1,5 @@
 <?php
-  require '../abre_sesion.php'; 
+  require '../abre_sesion.php';
   require '../conexion_bd.php';
 
   // Obtener historial del programa de riego
@@ -15,13 +15,13 @@
       $query = "INSERT INTO riego (hora, dia, duracion) ($hora, '$dia', $duracion);";
       echo $query;
       $agregar = iquery($conexion,$query);
-    
+
       redirect('riego.php');
   }else{
-  
+
   }
 
-?> 
+?>
 
 
 <!DOCTYPE html>
@@ -71,7 +71,7 @@
     <div class="overlay"></div>
 
     <!-- #END# Overlay For Sidebars -->
-    
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -123,7 +123,7 @@
             </div>
             <!-- #Menu -->
         </aside>
-        <!-- #END# Left Sidebar -->        
+        <!-- #END# Left Sidebar -->
     </section>
 
     <section class="content">
@@ -148,7 +148,7 @@
               <!--Tabla de reigo-->
               <table id="example1" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
 
-                <thead>  
+                <thead>
                 <tr role="row">
                   <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Horas/Días</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Lunes</th>
@@ -174,18 +174,19 @@
                         if($historial){
                           foreach ($historial as $dato) {
                             $hora_aux = $cont - 1;
-                            if($dato["hora"] == $hora_aux && $dato["dia"] == $dias_semana[$j]){
+                            if($dato["hora"] == $hora_aux && $dato["dia"] == $j){
+
                                 $cont2 = 1;
                                 echo "<td>
-                                <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" >" . $dato["duracion"]. "min" . "</button>
+                                <button type=\"button\" id=\"".$i.".".$j."\" class=\"btn btn-danger\" data-toggle=\"modal\" >" . $dato["duracion"]. "min" . "</button>
                                 </td>";
                             }
                           }
                         }
-                      
+
                         if($cont2 == 0){
                           echo "<td>
-                          <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" name=". $dia . $hora_aux ." value=". $dia . $hora_aux ." data-target=\"#exampleModal\" id = \"{0}\">0min</button>
+                          <button type=\"button\" id=\"".$i.".".$j."\" class=\"btn btn-primary\" data-toggle=\"modal\" name=". $dia . $hora_aux ." value=". $dia . $hora_aux ." data-target=\"#exampleModal\" >0min</button>
                           </td>";
                         }else{
                           $cont2 = 0;
@@ -248,8 +249,8 @@
           <label>Duración en minutos:</label>
           <select id="duracion_se" name="duracion_se">
             <option value="0">-- Selecione duración --</option>
-            <?php for ($h=1; $h <= 60; $h++) { 
-              echo "<option value='$h'>$h</option>";
+            <?php for ($h=1; $h <= 60; $h++) {
+              echo "<option value='$h' >$h</option>";
             } ?>
           </select>
 
@@ -261,7 +262,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button id="myFormSubmit" class="btn btn-primary" type="submit" name="materia"  data-dismiss="modal">Guardar</button>
       </div>
-      <?php 
+      <?php
         if(isset($_POST['submit']) || isset($_POST['materia'])){
           $duracion = $_POST["duracion_se"];
           $query = "INSERT INTO riego (hora, dia, duracion) ($hora, '$dia', $duracion);";

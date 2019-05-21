@@ -1,16 +1,16 @@
-<?php 
+<?php
 	$bd ='datos';
 	$servidor='localhost';
 	#$usuario='Karen';
 	#$contrasena='password';
 	$usuario='root';
-	$contrasena='karen';
+	$contrasena='';
 	$usuarioSesion = '';
 
 	//creamos una conexión a la base de datos
 	$conexion=mysqli_connect($servidor, $usuario,$contrasena,$bd);
 
-	
+
 	// checamos la conexion
 	if(!$conexion){
 		die('Conexion a la base de datos ' . $bd . ' falló: ' . mysqli_connect_error());
@@ -36,7 +36,7 @@
 			return $resultado;
 		}
 	}
-	
+
 	function iquery($query, $conexion){
 		$resultado = mysqli_query($conexion,$query) or die('Error al ejecutar la consulta');
 	}

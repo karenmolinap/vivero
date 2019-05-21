@@ -1,39 +1,37 @@
 <?php
-    require '../basedatos/conexion.php';
+    require '../conexion_bd.php';
 
     $id = $_GET['id'];
-    //$clave = $_GET['clave'];
-    $mat = $_GET['mat'];
-        
+    $duracion = $_GET['hora'];
+
+    $porciones = explode(".", $id);
+    $hora = $porciones[0]; // porción1
+    $dia  =  $porciones[1]; // porción2
+
+
+    $query = "INSERT INTO riego  VALUES (0, $hora, $dia, $duracion);";
+    echo $query;
+    //$agregar = iquery($query,$conexion);
+
+
     $respuesta=array();
-    
-    if($_SESSION['materias'][$mat] && $_SESSION['materias'][$mat] == $id){
-      unset($_SESSION['materias'][$mat]);
+    $agregar = true;
+    if($agregar){
       $respuesta[]=array(
-          'clave'=>$mat,
-          'pasar'=>0
-      );
-    }else{
-      $_SESSION['materias'][$mat] = $id;
-      $respuesta[]=array(
-          'clave'=>$mat,
-          'pasar'=>1
-      );     
-    }
-    
-    $max = sizeof($_SESSION['materias']);
-    if($max > 7){
-      unset($_SESSION['materias'][$mat]);
-      $respuesta=array();
-      $respuesta[]=array(
-          'clave'=>$mat,
+          'clave'=>$id,
+          'hora'=>$hora,
+          'dia'=>$dia,
           'pasar'=>2
       );
-      echo json_encode($respuesta);
     }else{
-      echo json_encode($respuesta);
+      $respuesta[]=array(
+          'clave'=>$id,
+          'hora'=>$hora,
+          'dia'=>$dia,
+          'pasar'=>2
+      );
     }
-    
-    //echo json_encode($_SESSION['materias']);
+    header('Location: ' . 'riego.php');
+    echo json_encode($respuesta);
 
 ?>
