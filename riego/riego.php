@@ -146,6 +146,7 @@
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Jueves</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Viernes</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Sábado</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" >Domingo</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -158,7 +159,7 @@
                       echo "<tr> <th> {$cont}:00 </th>";
                       $cont +=1;
                       $hora = $cont;
-                      for ($j=0; $j < 6; $j++) {
+                      for ($j=0; $j < 7; $j++) {
                         $dia = $dias_semana[$j];
                         if($historial){
                           foreach ($historial as $dato) {
@@ -227,7 +228,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel"><i class="fa fa-fw fa-calendar-plus-o"></i> Escojer Horario</h4>
+        <h4 class="modal-title" id="exampleModalLabel"><i class="fa fa-fw fa-calendar-plus-o"></i> Escojer Tiempo</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
