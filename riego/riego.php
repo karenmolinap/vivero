@@ -10,17 +10,6 @@
   $dia = '';
   $duracion = 0;
 
-  if(isset($_POST['submit']) || isset($_POST['materia'])){
-      $duracion = $_POST["duracion_se"];
-      $query = "INSERT INTO riego (hora, dia, duracion) ($hora, '$dia', $duracion);";
-      echo $query;
-      $agregar = iquery($conexion,$query);
-
-      redirect('riego.php');
-  }else{
-
-  }
-
 ?>
 
 

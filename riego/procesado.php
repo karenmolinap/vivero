@@ -9,10 +9,13 @@
     $dia  =  $porciones[1]; // porción2
     $pasar = 1;
     $query = "SELECT * FROM riego WHERE dia = $dia and hora = $hora;";
-    $resultados = iquery($query,$conexion);
+    $resultados = getDatos($query,$conexion);
     $idCon = -1;
     foreach ($resultados as $fila ) {
       $idCon = $fila["id"];
+    }
+    if($duracion == 0){
+      $idCon = -1;
     }
     if($idCon == -1){
       if($duracion == 0){
@@ -24,7 +27,7 @@
         $agregar = iquery($query,$conexion);
       }
     }else{
-      $query = "UPDATE riego SET dia = $dia,hora = $hora WHERE id = $idCon";
+      $query = "UPDATE riego SET duracion = $duracion WHERE id = $idCon";
       $borrar = iquery($query,$conexion);
 
     }
