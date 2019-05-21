@@ -1,10 +1,10 @@
 <?php
 	$bd ='datos';
 	$servidor='localhost';
-	#$usuario='Karen';
-	#$contrasena='password';
-	$usuario='root';
-	$contrasena='';
+	$usuario='Karen';
+	$contrasena='password';
+	//$usuario='root';
+	//$contrasena='';
 	$usuarioSesion = '';
 
 	//creamos una conexión a la base de datos

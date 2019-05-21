@@ -10,18 +10,17 @@
 
 
     $query = "INSERT INTO riego  VALUES (0, $hora, $dia, $duracion);";
-    echo $query;
-    //$agregar = iquery($query,$conexion);
+    $agregar = iquery($query,$conexion);
 
 
     $respuesta=array();
-    $agregar = true;
+
     if($agregar){
       $respuesta[]=array(
           'clave'=>$id,
           'hora'=>$hora,
           'dia'=>$dia,
-          'pasar'=>2
+          'pasar'=>1
       );
     }else{
       $respuesta[]=array(
@@ -31,7 +30,7 @@
           'pasar'=>2
       );
     }
-    header('Location: ' . 'riego.php');
+
     echo json_encode($respuesta);
 
 ?>
