@@ -1,7 +1,7 @@
 ﻿<?php
-  require 'abre_sesion.php'; 
+  require 'abre_sesion.php';
   require 'conexion_bd.php';
-?> 
+?>
 
 
 <!DOCTYPE html>
@@ -52,7 +52,7 @@
     <div class="overlay"></div>
 
     <!-- #END# Overlay For Sidebars -->
-    
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -106,7 +106,7 @@
             </div>
             <!-- #Menu -->
         </aside>
-        <!-- #END# Left Sidebar -->        
+        <!-- #END# Left Sidebar -->
     </section>
 
     <section class="content">
@@ -281,7 +281,7 @@
                     display: true,
                     labelString: 'Period 2'
 
-                  }, 
+                  },
                   id: "x-axis-2",
                   ticks:{
                     callback:function(label) {
@@ -336,10 +336,10 @@
               }
             });
 
-            
+
             //時間格式
             var timeFormat = 'HH:mm:ss';
-            
+
             function appendData()
             {
                 //超過10 個，就把最早進來的刪掉
@@ -348,12 +348,12 @@
                     datas.shift();
                 }
 
-                //推入y 軸新的資料 
+                //推入y 軸新的資料
                 yAxis.push(new moment().format(timeFormat));
-                
+
                 //推入一筆亂數進資料
                 datas.push(Math.floor(Math.random() *100) + 1);
-                
+
                 //更新線圖
                 lineChart.update();
             }
@@ -361,8 +361,8 @@
             //每秒做一次
             setInterval(appendData,1000);
             */
-            
-            
+
+
           </script>
 
           <script type="text/javascript">
@@ -431,7 +431,7 @@
           chart.data.datasets.forEach((dataset) => {
             if(dataset.label == label){
               dataset.data = data;
-            }  
+            }
           });
           chart.update();
         }
@@ -537,7 +537,7 @@
           chart.data.datasets.forEach((dataset) => {
             if(dataset.label == label){
               dataset.data = data;
-            }  
+            }
           });
           chart.update();
         }
@@ -597,7 +597,7 @@
       //var valueT = parseInt(valores[0],10);
       var valueT = parseFloat(valores[0]);
       $("#temperatura-gauge").dxCircularGauge({
-        rangeContainer: { 
+        rangeContainer: {
           offset: 10,
           ranges: [
             { startValue: 10, endValue: 50, color: '#41A128' },
@@ -631,7 +631,7 @@
             customizeText: function (arg) {
               return 'Meta ' + arg.valueText;
             }
-          }  
+          }
         },
         value: valueT,
         //subvalues: [825]
@@ -641,7 +641,7 @@
       //var valueR = parseInt(valores[1],10);
       var valueR = parseFloat(valores[1]);
       $("#humedad-gauge").dxCircularGauge({
-        rangeContainer: { 
+        rangeContainer: {
           offset: 10,
           ranges: [
             { startValue: 10, endValue: 50, color: '#41A128' },
@@ -675,14 +675,13 @@
             customizeText: function (arg) {
               return 'Meta ' + arg.valueText;
             }
-          }  
+          }
         },
         value: valueR,
         //subvalues: [825]
       });
-    
+
       }
     </script>
 </body>
 </html>
-
