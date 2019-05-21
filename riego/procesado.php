@@ -14,7 +14,7 @@
     foreach ($resultados as $fila ) {
       $idCon = $fila["id"];
     }
-    if($entrar == 0){
+    if($idCon == -1){
       if($duracion == 0){
         $query = "DELETE FROM riego WHERE dia = $dia and hora = $hora;";
         $borrar = iquery($query,$conexion);

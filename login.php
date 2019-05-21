@@ -29,7 +29,7 @@
 			<br><br>
 			<h1 align="center">Iniciar Sesión</h1>
 			<br>
-			<p align="center"><img src="favicon.ico"></p>
+			<p align="center"><img src="http://amestris.me/viverosrc/favicon.ico"></p>
 			<br><br>
 			<input type="text"  class="form_ctrl" name="usuario" placeholder="Usuario" required="Introduce el nombre de usuario">
 			<input type="password"  class="form_ctrl" name="contrasena" placeholder="Contraseña" required>
