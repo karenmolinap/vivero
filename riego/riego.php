@@ -178,7 +178,7 @@
 
                                 $cont2 = 1;
                                 echo "<td>
-                                <button type=\"button\" id=\"".$i.".".$j."\" class=\"btn btn-danger\" data-toggle=\"modal\" >" . $dato["duracion"]. "min" . "</button>
+                                <button type=\"button\" id=\"".$i.".".$j."\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#exampleModal\">" . $dato["duracion"]. "min" . "</button>
                                 </td>";
                             }
                           }
