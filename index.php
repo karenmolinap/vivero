@@ -26,6 +26,7 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="http://amestris.me/viverosrc/css/themes/all-themes.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="librerias/dist/datepickk.min.css">
 </head>
 
 <body class="theme-green">
